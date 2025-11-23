@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # ☕ Stoka - Inventory Management System
 
 A comprehensive, modern inventory management system built with Next.js, TypeScript, and Tailwind CSS. Stoka provides a complete solution for managing businesses, from inventory tracking to customer management.
@@ -146,3 +147,6 @@ Stoka is designed for businesses of all types, providing a comprehensive invento
 ---
 
 **Built with 📦 and ❤️ for the inventory management community** 
+=======
+# Inventory_Management_System
+>>>>>>> da07a43f9441032550a49503cff0158422cb3273
