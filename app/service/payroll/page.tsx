@@ -238,7 +238,7 @@ export default function Payroll() {
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-sm font-medium text-gray-600">Total Payroll</p>
-                <p className="text-2xl font-bold">${totalPayroll.toLocaleString()}</p>
+                <p className="text-2xl font-bold">PKR{totalPayroll.toLocaleString()}</p>
               </div>
               <div className="h-12 w-12 bg-green-100 rounded-lg flex items-center justify-center">
                 <DollarSign className="h-6 w-6 text-green-600" />

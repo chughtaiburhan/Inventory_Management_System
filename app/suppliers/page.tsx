@@ -15,55 +15,68 @@ export default function Suppliers() {
   const suppliers = [
     {
       id: "SUP001",
-      name: "TechCorp Solutions",
-      contact: "John Smith",
-      email: "john@techcorp.com",
-      phone: "+1 (555) 123-4567",
-      address: "123 Tech Street, Silicon Valley, CA",
-      category: "Electronics",
+      name: "Fresh Produce Suppliers Ltd",
+      contact: "Ahmed Khan",
+      email: "ahmed@freshproduce.pk",
+      phone: "+92 300 1234567",
+      address: "123 Vegetable Market, Lahore, Pakistan",
+      category: "Fresh Vegetables & Fruits",
       status: "Active",
-      totalOrders: 45,
-      lastOrder: "2024-01-15",
+      totalOrders: 145,
+      lastOrder: "2025-11-20",
       rating: 4.8,
     },
     {
       id: "SUP002",
-      name: "FurniMax Ltd",
-      contact: "Sarah Johnson",
-      email: "sarah@furnimax.com",
-      phone: "+1 (555) 987-6543",
-      address: "456 Furniture Ave, New York, NY",
-      category: "Furniture",
+      name: "Premium Meat Distributors",
+      contact: "Hassan Ali",
+      email: "hassan@premiummeat.pk",
+      phone: "+92 321 9876543",
+      address: "456 Meat Market Road, Karachi, Pakistan",
+      category: "Meat & Poultry",
       status: "Active",
-      totalOrders: 23,
-      lastOrder: "2024-01-10",
-      rating: 4.5,
+      totalOrders: 89,
+      lastOrder: "2025-11-21",
+      rating: 4.9,
     },
     {
       id: "SUP003",
-      name: "AccessoryHub",
-      contact: "Mike Wilson",
-      email: "mike@accessoryhub.com",
-      phone: "+1 (555) 456-7890",
-      address: "789 Accessory Blvd, Los Angeles, CA",
-      category: "Accessories",
-      status: "Inactive",
-      totalOrders: 12,
-      lastOrder: "2023-12-20",
-      rating: 3.9,
+      name: "Dairy Fresh Products",
+      contact: "Fatima Noor",
+      email: "fatima@dairyfresh.pk",
+      phone: "+92 333 4567890",
+      address: "789 Dairy Lane, Islamabad, Pakistan",
+      category: "Dairy Products",
+      status: "Active",
+      totalOrders: 123,
+      lastOrder: "2025-11-22",
+      rating: 4.7,
     },
     {
       id: "SUP004",
-      name: "Office Supplies Co",
-      contact: "Emma Davis",
-      email: "emma@officesupplies.com",
-      phone: "+1 (555) 321-0987",
-      address: "321 Office Park, Chicago, IL",
-      category: "Office Supplies",
+      name: "Spice & Seasoning Co",
+      contact: "Bilal Ahmed",
+      email: "bilal@spicecompany.pk",
+      phone: "+92 301 2345678",
+      address: "321 Spice Bazaar, Multan, Pakistan",
+      category: "Spices & Seasonings",
+      status: "Inactive",
+      totalOrders: 45,
+      lastOrder: "2025-10-15",
+      rating: 4.3,
+    },
+    {
+      id: "SUP005",
+      name: "Beverage Distributors Inc",
+      contact: "Sara Malik",
+      email: "sara@beverages.pk",
+      phone: "+92 345 8765432",
+      address: "555 Beverage Street, Faisalabad, Pakistan",
+      category: "Beverages & Drinks",
       status: "Active",
-      totalOrders: 67,
-      lastOrder: "2024-01-18",
-      rating: 4.7,
+      totalOrders: 167,
+      lastOrder: "2025-11-22",
+      rating: 4.6,
     },
   ]
 
@@ -87,8 +100,8 @@ export default function Suppliers() {
       {/* Header */}
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-3xl font-bold">Suppliers Management</h1>
-          <p className="text-gray-600">Manage your supplier relationships and contacts</p>
+          <h1 className="text-3xl font-bold">Restaurant Suppliers Management</h1>
+          <p className="text-gray-600">Manage your food suppliers, vendors, and distributor relationships</p>
         </div>
         <Button className="bg-blue-600 hover:bg-blue-700">
           <Plus className="h-4 w-4 mr-2" />
@@ -103,7 +116,7 @@ export default function Suppliers() {
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-sm font-medium text-gray-600">Total Suppliers</p>
-                <p className="text-2xl font-bold">24</p>
+                <p className="text-2xl font-bold">28</p>
               </div>
               <div className="h-12 w-12 bg-blue-100 rounded-lg flex items-center justify-center">
                 <Mail className="h-6 w-6 text-blue-600" />
@@ -117,7 +130,7 @@ export default function Suppliers() {
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-sm font-medium text-gray-600">Active Suppliers</p>
-                <p className="text-2xl font-bold text-green-600">21</p>
+                <p className="text-2xl font-bold text-green-600">24</p>
               </div>
               <div className="h-12 w-12 bg-green-100 rounded-lg flex items-center justify-center">
                 <Phone className="h-6 w-6 text-green-600" />
@@ -131,7 +144,7 @@ export default function Suppliers() {
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-sm font-medium text-gray-600">Total Orders</p>
-                <p className="text-2xl font-bold">147</p>
+                <p className="text-2xl font-bold">569</p>
               </div>
               <div className="h-12 w-12 bg-purple-100 rounded-lg flex items-center justify-center">
                 <MapPin className="h-6 w-6 text-purple-600" />
@@ -145,7 +158,7 @@ export default function Suppliers() {
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-sm font-medium text-gray-600">Avg Rating</p>
-                <p className="text-2xl font-bold">4.6</p>
+                <p className="text-2xl font-bold">4.7</p>
               </div>
               <div className="h-12 w-12 bg-yellow-100 rounded-lg flex items-center justify-center">
                 <span className="text-yellow-600 text-xl">⭐</span>

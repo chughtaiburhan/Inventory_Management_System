@@ -15,9 +15,9 @@ export default function Payroll() {
   const employees = [
     {
       id: "EMP001",
-      name: "John Smith",
-      position: "Store Manager",
-      department: "Management",
+      name: "Adam",
+      position: "Waiter",
+      department: "Customer Service",
       baseSalary: 5500,
       tax: 5500,
       bonus: 500,
@@ -28,9 +28,9 @@ export default function Payroll() {
     },
     {
       id: "EMP002",
-      name: "Sarah Johnson",
-      position: "Inventory Specialist",
-      department: "Operations",
+      name: "Ali",
+      position: "Waiter",
+      department: "Customer Service",
       baseSalary: 4200,
       tax: 4200,
       bonus: 200,
@@ -41,9 +41,9 @@ export default function Payroll() {
     },
     {
       id: "EMP003",
-      name: "Mike Wilson",
-      position: "Sales Associate",
-      department: "Sales",
+      name: "Malik",
+      position: "Waiter",
+      department: "Hotel Management",
       baseSalary: 3200,
       tax: 4,
       bonus: 150,
@@ -54,9 +54,9 @@ export default function Payroll() {
     },
     {
       id: "EMP004",
-      name: "Emma Davis",
-      position: "Accountant",
-      department: "Finance",
+      name: "Abdulrehman",
+      position: "Waiter",
+      department: "BBQ Management",
       baseSalary: 4800,
       tax: 0,
       bonus: 300,
@@ -113,7 +113,7 @@ export default function Payroll() {
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-sm font-medium text-gray-600">Total Payroll</p>
-                <p className="text-2xl font-bold">${totalPayroll.toLocaleString()}</p>
+                <p className="text-2xl font-bold">PKR{totalPayroll.toLocaleString()}</p>
               </div>
               <div className="h-12 w-12 bg-green-100 rounded-lg flex items-center justify-center">
                 <DollarSign className="h-6 w-6 text-green-600" />
@@ -195,7 +195,7 @@ export default function Payroll() {
       {/* Payroll Table */}
       <Card>
         <CardHeader>
-          <CardTitle>Employee Payroll - January 2024</CardTitle>
+          <CardTitle>Employee Payroll - November 2025</CardTitle>
         </CardHeader>
         <CardContent>
           <Table>

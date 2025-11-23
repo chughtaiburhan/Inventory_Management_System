@@ -34,31 +34,26 @@ export function AuthGuard({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     if (!checked) return;
 
-    // Public routes that don't require authentication
-    const publicRoutes = ["/login", "/signup", "/forgot-password", "/reset-password"];
+     const publicRoutes = ["/login", "/signup", "/forgot-password", "/reset-password"];
     const isPublicRoute = publicRoutes.includes(pathname);
 
-    // If not authenticated and not on a public route, redirect to login
-    if (!isAuth && !isPublicRoute) {
+     if (!isAuth && !isPublicRoute) {
       router.replace("/login");
       return;
     }
 
-    // If authenticated and on a public route, redirect to appropriate portal
-    if (isAuth && isPublicRoute) {
+     if (isAuth && isPublicRoute) {
       router.replace(businessType === "service" ? "/service" : "/product");
       return;
     }
 
-    // If authenticated and on root path, redirect to appropriate portal
-    if (isAuth && pathname === "/") {
+     if (isAuth && pathname === "/") {
       router.replace(businessType === "service" ? "/service" : "/product");
       return;
     }
   }, [isAuth, checked, pathname, router, businessType]);
 
-  // Show loading while checking auth
-  if (!checked) {
+   if (!checked) {
     return (
       <div className="min-h-screen flex items-center justify-center">
         <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div>
@@ -66,8 +61,7 @@ export function AuthGuard({ children }: { children: React.ReactNode }) {
     );
   }
 
-  // Public routes
-  const publicRoutes = ["/login", "/signup", "/forgot-password", "/reset-password"];
+   const publicRoutes = ["/login", "/signup", "/forgot-password", "/reset-password"];
   const isPublicRoute = publicRoutes.includes(pathname);
   const isProductPublic = pathname.startsWith("/product");
   const isServicePublic = pathname.startsWith("/service");

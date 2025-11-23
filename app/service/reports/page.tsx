@@ -1,7 +1,7 @@
 "use client"
 
 import React, { useState } from "react"
-import { Calendar, Download, Filter, TrendingUp, TrendingDown, BarChart3, Settings, DollarSign } from "lucide-react"
+import { Calendar, Download, Filter, TrendingUp, TrendingDown, BarChart3, UtensilsCrossed, DollarSign, Users } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
@@ -15,26 +15,34 @@ export default function ServiceReports() {
 
   const reportData = [
     {
-      category: "Consulting",
-      totalRevenue: 18600,
-      totalProjects: 12,
-      avgValue: 1550,
+      category: "Dine-In Service",
+      totalRevenue: 486000,
+      totalOrders: 2120,
+      avgValue: 229.25,
       trend: "up",
       change: 9.2,
     },
     {
-      category: "Support",
-      totalRevenue: 12400,
-      totalProjects: 20,
-      avgValue: 620,
+      category: "Takeaway Service",
+      totalRevenue: 234000,
+      totalOrders: 3200,
+      avgValue: 73.13,
+      trend: "up",
+      change: 15.5,
+    },
+    {
+      category: "Delivery Service",
+      totalRevenue: 178000,
+      totalOrders: 1870,
+      avgValue: 95.19,
       trend: "down",
       change: -3.5,
     },
     {
-      category: "Training",
-      totalRevenue: 9800,
-      totalProjects: 7,
-      avgValue: 1400,
+      category: "Catering Service",
+      totalRevenue: 115550,
+      totalOrders: 730,
+      avgValue: 158.29,
       trend: "up",
       change: 5.8,
     },
@@ -42,19 +50,20 @@ export default function ServiceReports() {
 
   // Mock data for charts
   const revenueTrendData = [
-    { date: "Jan", revenue: 5000 },
-    { date: "Feb", revenue: 7000 },
-    { date: "Mar", revenue: 9000 },
-    { date: "Apr", revenue: 8000 },
-    { date: "May", revenue: 11000 },
-    { date: "Jun", revenue: 13000 },
-    { date: "Jul", revenue: 14000 },
+    { date: "Jan", revenue: 125000 },
+    { date: "Feb", revenue: 145000 },
+    { date: "Mar", revenue: 160000 },
+    { date: "Apr", revenue: 155000 },
+    { date: "May", revenue: 180000 },
+    { date: "Jun", revenue: 200000 },
+    { date: "Jul", revenue: 220000 },
   ]
 
   const categoryPerformanceData = [
-    { category: "Consulting", revenue: 18600 },
-    { category: "Support", revenue: 12400 },
-    { category: "Training", revenue: 9800 },
+    { category: "Dine-In", revenue: 486000 },
+    { category: "Takeaway", revenue: 234000 },
+    { category: "Delivery", revenue: 178000 },
+    { category: "Catering", revenue: 115550 },
   ]
 
   return (
@@ -62,8 +71,8 @@ export default function ServiceReports() {
       {/* Header */}
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-3xl font-bold">Service Reports & Analytics</h1>
-          <p className="text-gray-600">Track your service performance and trends</p>
+          <h1 className="text-3xl font-bold">Restaurant Service Reports & Analytics</h1>
+          <p className="text-gray-600">Track your service performance, customer satisfaction, and revenue trends</p>
         </div>
         <div className="flex space-x-2">
           <Button variant="outline">
@@ -109,7 +118,7 @@ export default function ServiceReports() {
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-sm font-medium text-gray-600">Total Revenue</p>
-                <p className="text-2xl font-bold">$40,800</p>
+                <p className="text-2xl font-bold">PKR 1,013,550</p>
                 <div className="flex items-center mt-2">
                   <TrendingUp className="h-4 w-4 text-green-600 mr-1" />
                   <span className="text-sm text-green-600">+9.2%</span>
@@ -126,15 +135,15 @@ export default function ServiceReports() {
           <CardContent className="p-6">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm font-medium text-gray-600">Projects Completed</p>
-                <p className="text-2xl font-bold">39</p>
+                <p className="text-sm font-medium text-gray-600">Total Orders Served</p>
+                <p className="text-2xl font-bold">7,920</p>
                 <div className="flex items-center mt-2">
                   <TrendingUp className="h-4 w-4 text-green-600 mr-1" />
                   <span className="text-sm text-green-600">+5.1%</span>
                 </div>
               </div>
               <div className="h-12 w-12 bg-blue-100 rounded-lg flex items-center justify-center">
-                <Settings className="h-6 w-6 text-blue-600" />
+                <UtensilsCrossed className="h-6 w-6 text-blue-600" />
               </div>
             </div>
           </CardContent>
@@ -144,11 +153,11 @@ export default function ServiceReports() {
           <CardContent className="p-6">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm font-medium text-gray-600">Avg Project Value</p>
-                <p className="text-2xl font-bold">$1,190</p>
+                <p className="text-sm font-medium text-gray-600">Avg Service Value</p>
+                <p className="text-2xl font-bold">PKR 127.95</p>
                 <div className="flex items-center mt-2">
-                  <TrendingDown className="h-4 w-4 text-red-600 mr-1" />
-                  <span className="text-sm text-red-600">-1.7%</span>
+                  <TrendingUp className="h-4 w-4 text-green-600 mr-1" />
+                  <span className="text-sm text-green-600">+2.7%</span>
                 </div>
               </div>
               <div className="h-12 w-12 bg-purple-100 rounded-lg flex items-center justify-center">
@@ -162,8 +171,8 @@ export default function ServiceReports() {
           <CardContent className="p-6">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm font-medium text-gray-600">Top Category</p>
-                <p className="text-2xl font-bold">Consulting</p>
+                <p className="text-sm font-medium text-gray-600">Top Service</p>
+                <p className="text-2xl font-bold">Dine-In</p>
                 <div className="flex items-center mt-2">
                   <span className="text-sm text-gray-600">48% of revenue</span>
                 </div>
@@ -199,7 +208,7 @@ export default function ServiceReports() {
 
         <Card>
           <CardHeader>
-            <CardTitle>Category Performance</CardTitle>
+            <CardTitle>Service Category Performance</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="h-64 bg-gray-50 rounded-lg">
@@ -226,9 +235,9 @@ export default function ServiceReports() {
           <Table>
             <TableHeader>
               <TableRow>
-                <TableHead>Category</TableHead>
+                <TableHead>Service Category</TableHead>
                 <TableHead>Total Revenue</TableHead>
-                <TableHead>Projects</TableHead>
+                <TableHead>Orders</TableHead>
                 <TableHead>Avg Value</TableHead>
                 <TableHead>Trend</TableHead>
                 <TableHead>Change</TableHead>
@@ -238,9 +247,9 @@ export default function ServiceReports() {
               {reportData.map((item) => (
                 <TableRow key={item.category}>
                   <TableCell className="font-medium">{item.category}</TableCell>
-                  <TableCell>${item.totalRevenue.toLocaleString()}</TableCell>
-                  <TableCell>{item.totalProjects}</TableCell>
-                  <TableCell>${item.avgValue}</TableCell>
+                  <TableCell>PKR {item.totalRevenue.toLocaleString()}</TableCell>
+                  <TableCell>{item.totalOrders}</TableCell>
+                  <TableCell>PKR {item.avgValue}</TableCell>
                   <TableCell>
                     {item.trend === "up" ? (
                       <TrendingUp className="h-4 w-4 text-green-600" />
@@ -265,4 +274,4 @@ export default function ServiceReports() {
       </Card>
     </div>
   )
-} 
+}

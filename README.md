@@ -38,7 +38,7 @@ Stoka features a modern inventory-inspired design system:
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/your-username/stoka.git
+git clone https://github.com/chughtaiburhan/Inventory_Management_System.git
 cd stoka
 ```
 

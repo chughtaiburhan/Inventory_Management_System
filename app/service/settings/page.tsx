@@ -40,14 +40,6 @@ export default function Settings() {
     loginAttempts: "5",
   })
 
-  const [preferences, setPreferences] = useState({
-    theme: "light",
-    language: "en",
-    timezone: "America/New_York",
-    dateFormat: "MM/DD/YYYY",
-    currency: "USD",
-  })
-
   const [showConfirm, setShowConfirm] = useState<{ open: boolean; action: string | null }>({ open: false, action: null })
   const [showPhotoDialog, setShowPhotoDialog] = useState(false)
   const [photoFile, setPhotoFile] = useState<File | null>(null)
@@ -114,8 +106,6 @@ export default function Settings() {
           <TabsTrigger value="profile">Profile</TabsTrigger>
           <TabsTrigger value="notifications">Notifications</TabsTrigger>
           <TabsTrigger value="security">Security</TabsTrigger>
-          <TabsTrigger value="preferences">Preferences</TabsTrigger>
-          <TabsTrigger value="system">System</TabsTrigger>
         </TabsList>
 
         {/* Profile Settings */}
@@ -373,132 +363,6 @@ export default function Settings() {
             </CardContent>
           </Card>
         </TabsContent>
-
-        {/* Preferences */}
-        <TabsContent value="preferences">
-          <Card>
-            <CardHeader>
-              <CardTitle className="flex items-center gap-2">
-                <Palette className="h-5 w-5" />
-                System Preferences
-              </CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="space-y-2">
-                  <Label htmlFor="theme">Theme</Label>
-                  <Select
-                    value={preferences.theme}
-                    onValueChange={(value) => setPreferences({ ...preferences, theme: value })}
-                  >
-                    <SelectTrigger>
-                      <SelectValue />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="light">Light</SelectItem>
-                      <SelectItem value="dark">Dark</SelectItem>
-                      <SelectItem value="system">System</SelectItem>
-                    </SelectContent>
-                  </Select>
-                </div>
-                <div className="space-y-2">
-                  <Label htmlFor="language">Language</Label>
-                  <Select
-                    value={preferences.language}
-                    onValueChange={(value) => setPreferences({ ...preferences, language: value })}
-                  >
-                    <SelectTrigger>
-                      <SelectValue />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="en">English</SelectItem>
-                      <SelectItem value="es">Spanish</SelectItem>
-                      <SelectItem value="fr">French</SelectItem>
-                      <SelectItem value="de">German</SelectItem>
-                    </SelectContent>
-                  </Select>
-                </div>
-                <div className="space-y-2">
-                  <Label htmlFor="timezone">Timezone</Label>
-                  <Select
-                    value={preferences.timezone}
-                    onValueChange={(value) => setPreferences({ ...preferences, timezone: value })}
-                  >
-                    <SelectTrigger>
-                      <SelectValue />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="America/New_York">Eastern Time</SelectItem>
-                      <SelectItem value="America/Chicago">Central Time</SelectItem>
-                      <SelectItem value="America/Denver">Mountain Time</SelectItem>
-                      <SelectItem value="America/Los_Angeles">Pacific Time</SelectItem>
-                    </SelectContent>
-                  </Select>
-                </div>
-                <div className="space-y-2">
-                  <Label htmlFor="dateFormat">Date Format</Label>
-                  <Select
-                    value={preferences.dateFormat}
-                    onValueChange={(value) => setPreferences({ ...preferences, dateFormat: value })}
-                  >
-                    <SelectTrigger>
-                      <SelectValue />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="MM/DD/YYYY">MM/DD/YYYY</SelectItem>
-                      <SelectItem value="DD/MM/YYYY">DD/MM/YYYY</SelectItem>
-                      <SelectItem value="YYYY-MM-DD">YYYY-MM-DD</SelectItem>
-                    </SelectContent>
-                  </Select>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-        </TabsContent>
-
-        {/* System Settings */}
-        <TabsContent value="system">
-          <Card>
-            <CardHeader>
-              <CardTitle className="flex items-center gap-2">
-                <Database className="h-5 w-5" />
-                System Configuration
-              </CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-6">
-              <div className="space-y-4">
-                <h3 className="text-lg font-medium">System Information</h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div className="space-y-2">
-                    <Label>System Version</Label>
-                    <Input value="v2.1.0" disabled />
-                  </div>
-                  <div className="space-y-2">
-                    <Label>Database Version</Label>
-                    <Input value="PostgreSQL 14.2" disabled />
-                  </div>
-                  <div className="space-y-2">
-                    <Label>Last Backup</Label>
-                    <Input value="2024-01-20 14:30:00" disabled />
-                  </div>
-                  <div className="space-y-2">
-                    <Label>System Uptime</Label>
-                    <Input value="15 days, 4 hours" disabled />
-                  </div>
-                </div>
-              </div>
-
-              <div className="space-y-4">
-                <h3 className="text-lg font-medium">Maintenance</h3>
-                <div className="flex space-x-2">
-                  <Button variant="outline" onClick={() => handleMaintenance("Clear Cache")}>Clear Cache</Button>
-                  <Button variant="outline" onClick={() => handleMaintenance("Optimize Database")}>Optimize Database</Button>
-                  <Button variant="outline" onClick={() => handleMaintenance("Check Updates")}>Check Updates</Button>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-        </TabsContent>
       </Tabs>
 
       {/* Confirm Dialog for sensitive actions */}
@@ -514,6 +378,7 @@ export default function Settings() {
           </DialogFooter>
         </DialogContent>
       </Dialog>
+
       {/* Dialog for Change Photo */}
       <Dialog open={showPhotoDialog} onOpenChange={setShowPhotoDialog}>
         <DialogContent>
@@ -528,4 +393,4 @@ export default function Settings() {
       </Dialog>
     </div>
   )
-} 
+}

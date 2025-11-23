@@ -3,22 +3,24 @@
 import React, { useState } from "react"
 import { User, Bell, Shield, Database, Palette, Save, Eye, EyeOff } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Label } from "@/components/ui/label"
 import { Switch } from "@/components/ui/switch"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { Paragraph } from "@/components/ui/paragraph"
+import { Label } from "@/components/ui/label"
+import { Input } from "@/components/ui/input"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { toast } from "sonner"
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter } from "@/components/ui/dialog"
+import { Heading } from "@/components/ui/heading"
 
 export default function Settings() {
   const [showPassword, setShowPassword] = useState(false)
   const [profile, setProfile] = useState({
     name: "Rio Admin",
     email: "rio@inventory.com",
-    phone: "+1 (555) 123-4567",
+    phone: "+92 123 4567890",
     role: "Administrator",
     avatar: "/placeholder.svg?height=80&width=80",
   })
@@ -37,14 +39,6 @@ export default function Settings() {
     sessionTimeout: "30",
     passwordExpiry: "90",
     loginAttempts: "5",
-  })
-
-  const [preferences, setPreferences] = useState({
-    theme: "light",
-    language: "en",
-    timezone: "America/New_York",
-    dateFormat: "MM/DD/YYYY",
-    currency: "USD",
   })
 
   const [showConfirm, setShowConfirm] = useState<{ open: boolean; action: string | null }>({ open: false, action: null })
@@ -99,8 +93,8 @@ export default function Settings() {
       {/* Header */}
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-3xl font-bold">Settings</h1>
-          <p className="text-gray-600">Manage your account and system preferences</p>
+          <Heading variant="h2" className="font-bold">Settings</Heading>
+          <Paragraph variant="muted">Manage your account and system preferences</Paragraph>
         </div>
         <Button className="bg-blue-600 hover:bg-blue-700" onClick={handleSaveAll}>
           <Save className="h-4 w-4 mr-2" />
@@ -113,10 +107,10 @@ export default function Settings() {
           <TabsTrigger value="profile">Profile</TabsTrigger>
           <TabsTrigger value="notifications">Notifications</TabsTrigger>
           <TabsTrigger value="security">Security</TabsTrigger>
-          <TabsTrigger value="preferences">Preferences</TabsTrigger>
-          <TabsTrigger value="system">System</TabsTrigger>
+
         </TabsList>
 
+        {/* Profile Settings */}
         {/* Profile Settings */}
         <TabsContent value="profile">
           <Card>
@@ -136,7 +130,7 @@ export default function Settings() {
                   <Button variant="outline" size="sm" onClick={() => setShowPhotoDialog(true)}>
                     Change Photo
                   </Button>
-                  <p className="text-sm text-gray-500 mt-1">JPG, PNG or GIF. Max size 2MB.</p>
+                  <Paragraph variant="muted" size="sm" className="mt-1">JPG, PNG or GIF. Max size 2MB.</Paragraph>
                 </div>
               </div>
 
@@ -159,7 +153,7 @@ export default function Settings() {
                   />
                 </div>
                 <div className="space-y-2">
-                  <Label htmlFor="phone">Phone Number</Label>
+                  <Label htmlFor="phone">Phone Numbers</Label>
                   <Input
                     id="phone"
                     value={profile.phone}
@@ -182,7 +176,7 @@ export default function Settings() {
               </div>
 
               <div className="space-y-4">
-                <h3 className="text-lg font-medium">Change Password</h3>
+                <Heading variant="h4" className="font-medium">Change Password</Heading>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div className="space-y-2">
                     <Label htmlFor="currentPassword">Current Password</Label>
@@ -223,7 +217,7 @@ export default function Settings() {
         </TabsContent>
 
         {/* Notification Settings */}
-        <TabsContent value="notifications">
+        < TabsContent value="notifications" >
           <Card>
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
@@ -233,12 +227,12 @@ export default function Settings() {
             </CardHeader>
             <CardContent className="space-y-6">
               <div className="space-y-4">
-                <h3 className="text-lg font-medium">Alert Types</h3>
+                <Heading variant="h4" className="font-medium">Alert Types</Heading>
                 <div className="space-y-4">
                   <div className="flex items-center justify-between">
                     <div>
                       <Label>Email Alerts</Label>
-                      <p className="text-sm text-gray-500">Receive notifications via email</p>
+                      <Paragraph variant="muted" size="sm">Receive notifications via email</Paragraph>
                     </div>
                     <Switch
                       checked={notifications.emailAlerts}
@@ -248,7 +242,7 @@ export default function Settings() {
                   <div className="flex items-center justify-between">
                     <div>
                       <Label>SMS Alerts</Label>
-                      <p className="text-sm text-gray-500">Receive notifications via SMS</p>
+                      <Paragraph variant="muted" size="sm">Receive notifications via SMS</Paragraph>
                     </div>
                     <Switch
                       checked={notifications.smsAlerts}
@@ -258,7 +252,7 @@ export default function Settings() {
                   <div className="flex items-center justify-between">
                     <div>
                       <Label>Push Notifications</Label>
-                      <p className="text-sm text-gray-500">Browser push notifications</p>
+                      <Paragraph variant="muted" size="sm">Browser push notifications</Paragraph>
                     </div>
                     <Switch
                       checked={notifications.pushNotifications}
@@ -269,12 +263,12 @@ export default function Settings() {
               </div>
 
               <div className="space-y-4">
-                <h3 className="text-lg font-medium">System Alerts</h3>
+                <Heading variant="h4" className="font-medium">System Alerts</Heading>
                 <div className="space-y-4">
                   <div className="flex items-center justify-between">
                     <div>
                       <Label>Low Stock Alerts</Label>
-                      <p className="text-sm text-gray-500">Get notified when inventory is low</p>
+                      <Paragraph variant="muted" size="sm">Get notified when inventory is low</Paragraph>
                     </div>
                     <Switch
                       checked={notifications.lowStockAlerts}
@@ -284,7 +278,7 @@ export default function Settings() {
                   <div className="flex items-center justify-between">
                     <div>
                       <Label>Order Alerts</Label>
-                      <p className="text-sm text-gray-500">Notifications for new orders</p>
+                      <Paragraph variant="muted" size="sm">Notifications for new orders</Paragraph>
                     </div>
                     <Switch
                       checked={notifications.orderAlerts}
@@ -294,7 +288,7 @@ export default function Settings() {
                   <div className="flex items-center justify-between">
                     <div>
                       <Label>System Alerts</Label>
-                      <p className="text-sm text-gray-500">Important system notifications</p>
+                      <Paragraph variant="muted" size="sm">Important system notifications</Paragraph>
                     </div>
                     <Switch
                       checked={notifications.systemAlerts}
@@ -305,10 +299,10 @@ export default function Settings() {
               </div>
             </CardContent>
           </Card>
-        </TabsContent>
+        </TabsContent >
 
         {/* Security Settings */}
-        <TabsContent value="security">
+        < TabsContent value="security" >
           <Card>
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
@@ -321,7 +315,7 @@ export default function Settings() {
                 <div className="flex items-center justify-between">
                   <div>
                     <Label>Two-Factor Authentication</Label>
-                    <p className="text-sm text-gray-500">Add an extra layer of security to your account</p>
+                    <Paragraph variant="muted" size="sm">Add an extra layer of security to your account</Paragraph>
                   </div>
                   <Switch
                     checked={security.twoFactorAuth}
@@ -371,133 +365,9 @@ export default function Settings() {
               </div>
             </CardContent>
           </Card>
-        </TabsContent>
+        </TabsContent >
 
-        {/* Preferences */}
-        <TabsContent value="preferences">
-          <Card>
-            <CardHeader>
-              <CardTitle className="flex items-center gap-2">
-                <Palette className="h-5 w-5" />
-                System Preferences
-              </CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="space-y-2">
-                  <Label htmlFor="theme">Theme</Label>
-                  <Select
-                    value={preferences.theme}
-                    onValueChange={(value) => setPreferences({ ...preferences, theme: value })}
-                  >
-                    <SelectTrigger>
-                      <SelectValue />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="light">Light</SelectItem>
-                      <SelectItem value="dark">Dark</SelectItem>
-                      <SelectItem value="system">System</SelectItem>
-                    </SelectContent>
-                  </Select>
-                </div>
-                <div className="space-y-2">
-                  <Label htmlFor="language">Language</Label>
-                  <Select
-                    value={preferences.language}
-                    onValueChange={(value) => setPreferences({ ...preferences, language: value })}
-                  >
-                    <SelectTrigger>
-                      <SelectValue />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="en">English</SelectItem>
-                      <SelectItem value="es">Spanish</SelectItem>
-                      <SelectItem value="fr">French</SelectItem>
-                      <SelectItem value="de">German</SelectItem>
-                    </SelectContent>
-                  </Select>
-                </div>
-                <div className="space-y-2">
-                  <Label htmlFor="timezone">Timezone</Label>
-                  <Select
-                    value={preferences.timezone}
-                    onValueChange={(value) => setPreferences({ ...preferences, timezone: value })}
-                  >
-                    <SelectTrigger>
-                      <SelectValue />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="America/New_York">Eastern Time</SelectItem>
-                      <SelectItem value="America/Chicago">Central Time</SelectItem>
-                      <SelectItem value="America/Denver">Mountain Time</SelectItem>
-                      <SelectItem value="America/Los_Angeles">Pacific Time</SelectItem>
-                    </SelectContent>
-                  </Select>
-                </div>
-                <div className="space-y-2">
-                  <Label htmlFor="dateFormat">Date Format</Label>
-                  <Select
-                    value={preferences.dateFormat}
-                    onValueChange={(value) => setPreferences({ ...preferences, dateFormat: value })}
-                  >
-                    <SelectTrigger>
-                      <SelectValue />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="MM/DD/YYYY">MM/DD/YYYY</SelectItem>
-                      <SelectItem value="DD/MM/YYYY">DD/MM/YYYY</SelectItem>
-                      <SelectItem value="YYYY-MM-DD">YYYY-MM-DD</SelectItem>
-                    </SelectContent>
-                  </Select>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-        </TabsContent>
 
-        {/* System Settings */}
-        <TabsContent value="system">
-          <Card>
-            <CardHeader>
-              <CardTitle className="flex items-center gap-2">
-                <Database className="h-5 w-5" />
-                System Configuration
-              </CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-6">
-              <div className="space-y-4">
-                <h3 className="text-lg font-medium">System Information</h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div className="space-y-2">
-                    <Label>System Version</Label>
-                    <Input value="v2.1.0" disabled />
-                  </div>
-                  <div className="space-y-2">
-                    <Label>Database Version</Label>
-                    <Input value="PostgreSQL 14.2" disabled />
-                  </div>
-                  <div className="space-y-2">
-                    <Label>Last Backup</Label>
-                    <Input value="2024-01-20 14:30:00" disabled />
-                  </div>
-                  <div className="space-y-2">
-                    <Label>System Uptime</Label>
-                    <Input value="15 days, 4 hours" disabled />
-                  </div>
-                </div>
-              </div>
-
-              <div className="space-y-4">
-                <h3 className="text-lg font-medium">Maintenance</h3>
-                <div className="flex space-x-2">
-                  <Button variant="outline" onClick={() => handleMaintenance("Clear Cache")}>Clear Cache</Button>
-                  <Button variant="outline" onClick={() => handleMaintenance("Optimize Database")}>Optimize Database</Button>
-                  <Button variant="outline" onClick={() => handleMaintenance("Check Updates")}>Check Updates</Button>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-        </TabsContent>
       </Tabs>
 
       {/* Confirm Dialog for sensitive actions */}
@@ -506,25 +376,71 @@ export default function Settings() {
           <DialogHeader>
             <DialogTitle>Are you sure?</DialogTitle>
           </DialogHeader>
-          <p>This action cannot be undone. Proceed with {showConfirm.action}?</p>
+          <Paragraph>This action cannot be undone. Proceed with {showConfirm.action}?</Paragraph>
           <DialogFooter>
             <Button variant="outline" onClick={() => setShowConfirm({ open: false, action: null })}>Cancel</Button>
             <Button variant="destructive" onClick={handleConfirm}>Yes, Proceed</Button>
           </DialogFooter>
         </DialogContent>
       </Dialog>
+
       {/* Dialog for Change Photo */}
       <Dialog open={showPhotoDialog} onOpenChange={setShowPhotoDialog}>
         <DialogContent>
           <DialogHeader>
             <DialogTitle>Change Profile Photo</DialogTitle>
           </DialogHeader>
-          <input type="file" accept="image/*" onChange={handlePhotoChange} />
+          <Input type="file" accept="image/*" onChange={handlePhotoChange} />
           <DialogFooter>
             <Button variant="outline" onClick={() => setShowPhotoDialog(false)}>Cancel</Button>
           </DialogFooter>
         </DialogContent>
       </Dialog>
+
+      <div className="space-y-6 mt-10 border-t pt-6">
+        <div>
+          <Heading variant="h4" className="font-medium">Dynamic Components Demo</Heading>
+          <Paragraph variant="muted" size="sm">
+            Testing the new dynamic components.
+          </Paragraph>
+        </div>
+        <div className="grid gap-4 border p-4 rounded-lg">
+          <div className="space-y-2">
+            <Heading variant="h5" className="font-medium">Paragraphs</Heading>
+            <Paragraph>Default Paragraph</Paragraph>
+            <Paragraph variant="muted">Muted Paragraph</Paragraph>
+            <Paragraph variant="lead">Lead Paragraph</Paragraph>
+            <Paragraph variant="error">Error Paragraph</Paragraph>
+            <Paragraph size="sm">Small Paragraph</Paragraph>
+            <Paragraph weight="bold">Bold Paragraph</Paragraph>
+          </div>
+          <div className="space-y-2">
+            <Heading variant="h5" className="font-medium">Labels</Heading>
+            <Label>Default Label</Label>
+            <Label variant="error">Error Label</Label>
+            <Label size="lg">Large Label</Label>
+          </div>
+          <div className="space-y-2">
+            <Heading variant="h5" className="font-medium">Inputs</Heading>
+            <div className="grid gap-2">
+              <Label>Default Input</Label>
+              <Input placeholder="Default" />
+            </div>
+            <div className="grid gap-2">
+              <Label variant="error">Error Input</Label>
+              <Input variant="error" placeholder="Error" />
+            </div>
+            <div className="grid gap-2">
+              <Label>Success Input</Label>
+              <Input variant="success" placeholder="Success" />
+            </div>
+            <div className="grid gap-2">
+              <Label>Small Input</Label>
+              <Input size="sm" placeholder="Small" />
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   )
 }

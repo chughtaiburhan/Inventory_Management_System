@@ -21,6 +21,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { toast } from "sonner";
 import { DashboardHeader } from "@/components/DashboardHeader";
+import { Heading } from "@/components/ui/heading";
 
 export default function ProductPageClient() {
   const router = useRouter();
@@ -40,17 +41,19 @@ export default function ProductPageClient() {
   ]);
 
   const [supplierData] = useState([
-    { name: "TechCorp", value: 35, color: "#0088FE" },
-    { name: "SupplyMax", value: 25, color: "#00C49F" },
-    { name: "GlobalParts", value: 20, color: "#FFBB28" },
-    { name: "QualityFirst", value: 20, color: "#FF8042" },
+    { name: "Fresh Produce", value: 35, color: "#0088FE" },
+    { name: "Meat Suppliers", value: 25, color: "#00C49F" },
+    { name: "Dairy Products", value: 20, color: "#FFBB28" },
+    { name: "Beverages Inc", value: 20, color: "#FF8042" },
   ]);
 
   const [recentProducts] = useState([
-    { name: "Laptop Pro", stock: 45, price: "$1,299" },
-    { name: "Wireless Mouse", stock: 120, price: "$29" },
-    { name: "USB Cable", stock: 200, price: "$12" },
-    { name: "Monitor 24\"", stock: 15, price: "$249" },
+    { name: "Chicken (Fresh)", stock: 45, price: "PKR 450/kg" },
+    { name: "Potato", stock: 120, price: "PKR 80/kg" },
+    { name: "Wheat Flour", stock: 200, price: "PKR 120/kg" },
+    { name: "Beverages (Soft Drinks)", stock: 150, price: "PKR 100/bottle" },
+    { name: "Cooking Oil", stock: 80, price: "PKR 450/liter" },
+    { name: "Rice (Basmati)", stock: 95, price: "PKR 180/kg" },
   ]);
 
   const [productForm, setProductForm] = useState({
@@ -170,7 +173,7 @@ export default function ProductPageClient() {
               </Tooltip>
               <Tooltip>
                 <TooltipTrigger asChild>
-                  <Button variant="ghost" size="icon" onClick={() => setTheme(theme === "dark" ? "light" : "dark") } aria-label="Toggle theme" tabIndex={0}>
+                  <Button variant="ghost" size="icon" onClick={() => setTheme(theme === "dark" ? "light" : "dark")} aria-label="Toggle theme" tabIndex={0}>
                     <Moon className="h-5 w-5" />
                   </Button>
                 </TooltipTrigger>
@@ -178,9 +181,9 @@ export default function ProductPageClient() {
               </Tooltip>
               <Tooltip>
                 <TooltipTrigger asChild>
-                  <Button 
-                    variant="ghost" 
-                    size="icon" 
+                  <Button
+                    variant="ghost"
+                    size="icon"
                     onClick={handleLogoutClick}
                     className="bg-red-100 hover:bg-red-200 rounded-full p-2 border border-red-300 shadow-md"
                     aria-label="Logout"
@@ -201,7 +204,7 @@ export default function ProductPageClient() {
                 <CardContent className="p-4 sm:p-6">
                   <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
                     <div className="flex-1">
-                      <h1 className="text-xl sm:text-2xl font-bold mb-2">
+                      <Heading variant="h4" className="font-bold mb-2">
                         {isCustomCategory && !editingCategory ? (
                           <>
                             Welcome to <span className="inline-block px-2 py-1 rounded bg-white/10 text-yellow-200 font-semibold">{businessCategory}</span> Management System!
@@ -231,7 +234,7 @@ export default function ProductPageClient() {
                         ) : (
                           <>Welcome to Product Management System!</>
                         )}
-                      </h1>
+                      </Heading>
                       <p className="text-inventory-100 mb-4">
                         {isCustomCategory ? (
                           <>Manage your <span className="font-semibold text-yellow-200">{businessCategory}</span> products and operations</>
@@ -263,7 +266,7 @@ export default function ProductPageClient() {
                                   required
                                 />
                               </div>
-                              
+
                               <div className="space-y-2">
                                 <Label htmlFor="description">Description</Label>
                                 <Textarea
@@ -274,7 +277,7 @@ export default function ProductPageClient() {
                                   rows={3}
                                 />
                               </div>
-                              
+
                               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                 <div className="space-y-2">
                                   <Label htmlFor="category">Category</Label>
@@ -301,7 +304,7 @@ export default function ProductPageClient() {
                                   />
                                 </div>
                               </div>
-                              
+
                               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                 <div className="space-y-2">
                                   <Label htmlFor="stock">Stock *</Label>
@@ -324,7 +327,7 @@ export default function ProductPageClient() {
                                   />
                                 </div>
                               </div>
-                              
+
                               <div className="space-y-2">
                                 <Label htmlFor="supplier">Supplier</Label>
                                 <Input
@@ -334,7 +337,7 @@ export default function ProductPageClient() {
                                   placeholder="Enter supplier name"
                                 />
                               </div>
-                              
+
                               <div className="flex flex-col sm:flex-row gap-2 pt-4">
                                 <Button type="submit" className="flex-1 bg-inventory-600 hover:bg-inventory-700">
                                   Add Product
@@ -361,8 +364,8 @@ export default function ProductPageClient() {
                       </div>
                     </div>
                     <div className="hidden lg:block">
-                                          <div className="w-24 h-24 lg:w-32 lg:h-32 bg-inventory-500/20 rounded-lg flex items-center justify-center">
-                      <Package className="w-12 h-12 lg:w-16 lg:h-16 text-inventory-300" />
+                      <div className="w-24 h-24 lg:w-32 lg:h-32 bg-inventory-500/20 rounded-lg flex items-center justify-center">
+                        <Package className="w-12 h-12 lg:w-16 lg:h-16 text-inventory-300" />
                       </div>
                     </div>
                   </div>
@@ -375,7 +378,7 @@ export default function ProductPageClient() {
                   <CardContent className="p-4 sm:p-6">
                     <div className="flex items-center justify-between mb-4">
                       <div>
-                        <p className="text-xl sm:text-2xl font-bold">$12,450</p>
+                        <p className="text-xl sm:text-2xl font-bold">PKR{" "}12,450</p>
                         <p className="text-gray-600 text-sm">+12%</p>
                       </div>
                       <Button asChild variant="ghost" size="icon">
@@ -394,7 +397,7 @@ export default function ProductPageClient() {
                         </DropdownMenu>
                       </Button>
                     </div>
-                    <h3 className="font-semibold mb-4 text-sm sm:text-base">Total Revenue</h3>
+                    <Heading variant="h6" className="font-semibold mb-4 text-sm sm:text-base">Total Revenue</Heading>
                     <div className="h-20 sm:h-24">
                       {metricsLoading ? (
                         <Skeleton className="w-full h-full" />
@@ -435,7 +438,7 @@ export default function ProductPageClient() {
                         </DropdownMenu>
                       </Button>
                     </div>
-                    <h3 className="font-semibold mb-4 text-sm sm:text-base">Total Products</h3>
+                    <Heading variant="h6" className="font-semibold mb-4 text-sm sm:text-base">Total Products</Heading>
                     <div className="h-20 sm:h-24">
                       {metricsLoading ? (
                         <Skeleton className="w-full h-full" />
@@ -525,7 +528,7 @@ export default function ProductPageClient() {
                             <Package className="w-4 h-4 sm:w-5 sm:h-5 text-inventory-600" />
                           </div>
                           <div className="min-w-0 flex-1">
-                            <h4 className="font-medium text-sm sm:text-base truncate">{product.name}</h4>
+                            <Heading variant="h6" className="font-medium text-sm sm:text-base truncate">{product.name}</Heading>
                             <p className="text-xs sm:text-sm text-gray-500">Stock: {product.stock} units</p>
                           </div>
                         </div>
@@ -624,7 +627,7 @@ export default function ProductPageClient() {
           </AlertDialogHeader>
           <AlertDialogFooter>
             <AlertDialogCancel className="border-inventory-600 text-inventory-600 hover:bg-inventory-50">Cancel</AlertDialogCancel>
-            <AlertDialogAction 
+            <AlertDialogAction
               onClick={handleLogout}
               className="bg-inventory-600 hover:bg-inventory-700 text-white"
             >
@@ -635,4 +638,4 @@ export default function ProductPageClient() {
       </AlertDialog>
     </AuthGuard>
   );
-} 
+}
