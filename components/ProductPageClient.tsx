@@ -146,7 +146,7 @@ export default function ProductPageClient() {
   return (
     <AuthGuard>
       <TooltipProvider>
-        <div className="flex-1 space-y-3 pt-6 px-4 pr-8 lg:pr-12">
+        <div className="flex-1 space-y-6">
           <DashboardHeader title="Product Dashboard">
             <div className="flex items-center space-x-2 sm:space-x-4 w-full">
               <div className="relative flex-1 hidden sm:block">

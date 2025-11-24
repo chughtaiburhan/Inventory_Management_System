@@ -42,7 +42,7 @@ website: "www.stoka.com",
   })
 
   return (
-    <div className="flex-1 space-y-6 p-6">
+    <div className="flex-1 space-y-6 p-6 ml-[90px]">
       {/* Header */}
       <div className="flex items-center justify-between">
         <div>

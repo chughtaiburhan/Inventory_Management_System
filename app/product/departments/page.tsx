@@ -137,7 +137,7 @@ export default function DepartmentsPage() {
   }
 
   return (
-    <div className="flex-1 space-y-6 pr-6 pt-6">
+    <div className="flex-1 space-y-6 pt-6 ml-[110px]">
       {/* Header */}
       <div className="flex items-center justify-between">
         <div>

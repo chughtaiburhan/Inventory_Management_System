@@ -87,7 +87,7 @@ export function AppSidebar() {
 
   return (
     <>
-      <Sidebar className="border-r w-[200px] bg-sidebar text-sidebar-foreground dark:bg-sidebar dark:text-sidebar-foreground pt-6">
+      <Sidebar className="border-r w-[300px] bg-sidebar text-sidebar-foreground dark:bg-sidebar dark:text-sidebar-foreground pt-6">
         <SidebarHeader className="p-4 border-b border-sidebar-border dark:border-sidebar-border bg-sidebar dark:bg-sidebar">
           <div className="flex items-center gap-3">
             <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-amber-600 to-orange-600 shadow-lg">
