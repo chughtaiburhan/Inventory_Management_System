@@ -12,12 +12,12 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 
 export default function ManageStore() {
   const [storeInfo, setStoreInfo] = useState({
-    name: "Stoka Inventory",
+    name: "cafe 22 Inventory",
     description: "Your trusted partner for electronics, furniture, and office supplies",
     address: "123 Commerce Street, Business District, NY 10001",
     phone: "+1 (555) 123-4567",
-    email: "info@stoka.com",
-website: "www.stoka.com",
+    email: "info@cafe 22.com",
+website: "www.cafe 22.com",
     taxId: "12-3456789",
     currency: "USD",
   })

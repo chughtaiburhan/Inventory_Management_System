@@ -189,7 +189,7 @@ export default function ResetPasswordPage() {
           </div>
         </CardContent>
         <footer className="w-full border-t border-border bg-white text-foreground/80 py-4 px-2 flex flex-col items-center justify-center gap-2 mt-4 shadow-inner z-20">
-            <span className="font-bold text-lg tracking-tight bg-gradient-to-r from-inventory-700 to-amber-700 bg-clip-text text-transparent">Stoka</span>
+            <span className="font-bold text-lg tracking-tight bg-gradient-to-r from-inventory-700 to-amber-700 bg-clip-text text-transparent">cafe 22</span>
             <span className="text-xs text-muted-foreground">&copy; {new Date().getFullYear()} All rights reserved.</span>
           </footer>
       </Card>

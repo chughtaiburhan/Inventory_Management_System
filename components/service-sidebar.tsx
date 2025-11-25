@@ -90,7 +90,7 @@ export function ServiceSidebar() {
               <Package2 className="h-5 w-5 text-white" />
             </div>
             <div className="flex flex-col">
-              <span className="text-xl font-bold bg-gradient-to-r from-amber-700 to-orange-700 bg-clip-text text-transparent">Stoka</span>
+              <span className="text-xl font-bold bg-gradient-to-r from-amber-700 to-orange-700 bg-clip-text text-transparent">cafe 22</span>
               <span className="text-xs text-muted-foreground">Inventory Management</span>
             </div>
           </div>
@@ -123,7 +123,7 @@ export function ServiceSidebar() {
               </div>
               <Heading variant="h6" className="font-semibold text-sm mb-1 text-amber-800 dark:text-amber-200">Upgrade to Premium</Heading>
               <p className="text-xs text-amber-700 dark:text-amber-300 mb-3">
-                Unlock advanced features, priority support, and exclusive tools by upgrading to Stoka Premium.
+                Unlock advanced features, priority support, and exclusive tools by upgrading to cafe 22 Premium.
               </p>
               <Button className="w-full bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-700 hover:to-orange-700 text-white shadow-lg" onClick={() => setShowUpgrade(true)}>
                 Upgrade Now
@@ -137,7 +137,7 @@ export function ServiceSidebar() {
           <DialogHeader>
             <DialogTitle className="flex items-center gap-2 text-amber-700 dark:text-amber-300">
               <Crown className="h-6 w-6 text-amber-600 dark:text-amber-400" />
-              Upgrade to Stoka Premium
+              Upgrade to cafe 22 Premium
             </DialogTitle>
           </DialogHeader>
           <div className="py-2 text-center">
